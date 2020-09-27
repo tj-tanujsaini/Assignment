@@ -1,0 +1,48 @@
+*{
+    font-size: 14px;
+}
+
+.center-parent{
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    border: olive 1px solid;
+}
+
+.column-heading{
+    font-weight: 400;
+}
+
+.column-heading th{
+    font-weight: 300;
+    padding: 5px;
+    color: rgb(37, 37, 37);
+    border-style: solid;
+    margin: 0;
+    border-width: 1px;
+    border-color: black;
+    background-color: khaki;
+}
+
+.pay-table{
+    padding: 5px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.table-cell td{
+    text-align: left;
+    padding: 5px;
+    color: rgb(95, 95, 95);
+    border: gray 1px solid;
+}
+
+.inline-list li{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.page-tracker {
+    display: flex;
+    justify-content: space-between;
+}

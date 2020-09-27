@@ -1,0 +1,44 @@
+nav{
+    width: 100%;
+    height: 50px;
+    background-color: #1c2a4f;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-content{
+    width: 100%;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto 20px;
+    color: white;
+}
+
+.inline-list{
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.inline-list li{
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.inline-list li:hover{
+    cursor: pointer;
+    color: chartreuse;
+}
+a{
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+a:hover{
+    cursor: pointer;
+    color: chartreuse;
+}

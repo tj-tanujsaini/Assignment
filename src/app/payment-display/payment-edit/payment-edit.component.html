@@ -1,0 +1,71 @@
+<form (ngSubmit)="onSubmit(payForm)" #payForm="ngForm">
+    <div>
+        <label for="PaymentId">PaymentId</label>
+        <input 
+            type="number"
+            id="PaymentId"
+            name="PaymentId"
+            required
+            ngModel={{updatePayment.paymentId}}>
+    </div>
+    <div>
+        <label for="OrderDate">OrderDate</label>
+        <input
+            id="OrderDate"
+            name="OrderDate"
+            type="date" 
+            value="02-02-2012"
+            required
+            [ngModel]="orderDate | date:'yyyy-MM-dd'">
+    </div>
+    <div>
+        <label for="MerchantId">MerchantId</label>
+        <input 
+            placeholder="MerchantId"
+            type="number"
+            id="MerchantId"
+            name="MerchantId"
+            required
+            ngModel={{updatePayment.merchantId}}>
+    </div>
+    <div>
+        <label for="CustomerEmail">CustomerEmail</label>
+        <input 
+            
+            type="email"
+            id="CustomerEmail"
+            name="CustomerEmail"
+            required
+            ngModel={{updatePayment.customerEmail}}>
+    </div>
+    <div>
+        <label for="Amount">Amount</label>
+        <input 
+            placeholder="Amount"
+            type="number"
+            id="Amount"
+            name="Amount"
+            required
+            ngModel={{updatePayment.amount}}>
+    </div>
+    <div>
+        <label for="PaymentStatus">PaymentStatus</label>
+        <select 
+            id="PaymentStatus"
+            name="PaymentStatus"
+            required
+            ngModel={{updatePayment.paymentStatus}}>
+            <option value="Initiated">Initiated</option>
+            <option value="Failed">Failed</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Success">Success</option>
+            <option value="Refunded">Refunded</option>
+        </select>
+    </div>
+    <button 
+        type="submit" 
+        class="btn-normal"
+        [disabled]="!payForm.valid">Update Payment</button>
+    <button type="button" class="btn-cancel"><a routerLink="/payments">Cancel</a></button>
+    
+</form>

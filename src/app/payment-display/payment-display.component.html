@@ -1,0 +1,125 @@
+<div class="center-parent">
+    <!-- call onSubmit method() when from is submit -->
+    <form (ngSubmit)="onSearch(searchForm)" #searchForm="ngForm">
+        <label for="searchBar">Search Payment: </label>
+        <input 
+            type="text"
+            name="searchBar" 
+            autocomplete="off"
+            id="searchBar"
+            ngModel
+            required>
+            <button 
+                class="btn-normal"
+                [disabled]="!searchForm.valid">Search</button>
+    </form>
+    
+    <!-- call onFilter method() when from is submit -->
+    <form (ngSubmit)="onFilter(filterForm)" #filterForm="ngForm">
+        <label for="Filter">Filter: </label>
+        <select 
+            id="Filter"
+            name="Filter"
+            ngModel
+            required>
+            <option value="Initiated">Initiated</option>
+            <option value="Failed">Failed</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Success">Success</option>
+            <option value="Refunded">Refunded</option>
+        </select>
+        <label for="StartDate">Start Date: </label>
+        <input 
+            type="date"
+            name="StartDate"
+            id="StartDate"
+            ngModel
+            required>
+        <label for="EndDate">End Date: </label>
+        <input 
+            type="date"
+            name="EndDate"
+            id="EndDate"
+            ngModel
+            required>
+            <button 
+                class="btn-normal"
+                [disabled]="!filterForm.valid">Filter</button>
+    </form>
+
+    <!-- Table for display of payment details -->
+    <table class="pay-table">
+        <tr class="column-heading">
+            <th>Sno</th>
+            <th (click)="sortMethod('paymentId')">PaymentId</th>
+            <th (click)="sortMethod('orderDate')">OrderDate</th>
+            <th (click)="sortMethod('merchantId')">MerchantId</th>
+            <th (click)="sortMethod('customerEmail')">CustomerEmail</th>
+            <th (click)="sortMethod('amount')">Amount</th>
+            <th (click)="sortMethod('paymentStatus')">PaymentStatus</th>
+            <th>Select</th>
+        </tr> 
+        <tr *ngFor="let paymentDetail of paymentData; let i = index" class="table-cell">
+            <td>{{ (pageNumber - 1)*noOfResults + (i+1) }}</td>
+            <td>{{ paymentDetail.paymentId}}</td>
+            <td>{{ paymentDetail.orderDate}}</td>
+            <td>{{ paymentDetail.merchantId}}</td>
+            <td>{{ paymentDetail.customerEmail}}</td>
+            <td>{{ paymentDetail.amount}}</td>
+            <td>{{ paymentDetail.paymentStatus}}</td>
+            <td>
+            <form style="text-align: center;">
+                    <input 
+                        type="checkbox"
+                        name="editPay" 
+                        autocomplete="off"
+                        id="editPay"
+                        (change)="onCheckBoxChange(paymentDetail.paymentId)">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <!-- bottom buttons for pagination -->
+    <div class="page-tracker">
+        <div class="inline-list">
+            <button 
+                class="btn-normal"
+                [disabled]="start===0 ? true:false"  
+                (click)="showFirstPage()">First</button>
+            <button 
+                class="btn-normal" 
+                [disabled]="start===0 ? true:false" 
+                (click)="showPreviousPage()">Previous</button>
+            <button 
+                class="btn-normal" 
+                [disabled]="end >= paymentNumbers ? true:false" 
+                (click)="showNextPage()">Next</button>
+            <button 
+                class="btn-normal"
+                [disabled]="end >= paymentNumbers ? true:false" 
+                (click)="showLastPage()">Last</button>
+        </div>
+        <div>
+            <button 
+                class="btn-submit"
+                [disabled]="editPayment.length !== 1" 
+                (click)="editPaymentMethod()">Edit Selected</button>
+            <button 
+                class="btn-cancel"
+                [disabled]="!(editPayment.length > 0)" 
+                (click)="deletePaymentMethod()">Delete Selected</button>
+        </div>
+        <form (ngSubmit)="onSubmit(formNumber)" #formNumber="ngForm">
+            <label for="paging">Results per page</label>
+            <input 
+                placeholder="{{ noOfResults }}"
+                type="number"
+                id="paging"
+                name="noOfResults"
+                ngModel>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</div>

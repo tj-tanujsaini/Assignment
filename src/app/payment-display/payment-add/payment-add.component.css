@@ -1,0 +1,23 @@
+form{
+    width: 500px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 50px;
+    border: green 2px solid;
+}
+
+form select{
+    display: block;
+    margin: 5px;
+    height: 40px;
+    padding: 5px;
+    width: 400px;
+}
+
+form input{
+    display: block;
+    margin: 5px;
+    height: 25px;
+    padding: 5px;
+    width: 400px;
+}

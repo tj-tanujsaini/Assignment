@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit(payForm)" #payForm="ngForm">
+    <div>
+        <label for="PaymentId">PaymentId</label>
+        <input 
+            placeholder="PaymentId"
+            type="number"
+            id="PaymentId"
+            name="PaymentId"
+            ngModel>
+    </div>
+    <div>
+        <label for="OrderDate">OrderDate</label>
+        <input 
+            placeholder="OrderDate"
+            type="date"
+            id="OrderDate"
+            name="OrderDate"
+            ngModel>
+    </div>
+    <div>
+        <label for="MerchantId">MerchantId</label>
+        <input 
+            placeholder="MerchantId"
+            type="number"
+            id="MerchantId"
+            name="MerchantId"
+            ngModel>
+    </div>
+    <div>
+        <label for="CustomerEmail">CustomerEmail</label>
+        <input 
+            placeholder="CustomerEmail"
+            type="email"
+            id="CustomerEmail"
+            name="CustomerEmail"
+            ngModel>
+    </div>
+    <div>
+        <label for="Amount">Amount</label>
+        <input 
+            placeholder="Amount"
+            type="number"
+            id="Amount"
+            name="Amount"
+            ngModel>
+    </div>
+    <div>
+        <label for="PaymentStatus">PaymentStatus</label>
+        <select 
+            id="PaymentStatus"
+            name="PaymentStatus"
+            ngModel>
+            <option value="Initiated">Initiated</option>
+            <option value="Failed">Failed</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Success">Success</option>
+            <option value="Refunded">Refunded</option>
+        </select>
+    </div>
+    <button type="submit" class="btn-normal">Add Payment</button>
+    <button type="button" (click)="clearForm()" class="btn-cancel">Clear</button>
+    
+</form>

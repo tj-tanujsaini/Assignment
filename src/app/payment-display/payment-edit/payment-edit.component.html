@@ -6,6 +6,7 @@
             id="PaymentId"
             name="PaymentId"
             required
+            min="0"
             ngModel={{updatePayment.paymentId}}>
     </div>
     <div>
@@ -25,6 +26,7 @@
             type="number"
             id="MerchantId"
             name="MerchantId"
+            min="0"
             required
             ngModel={{updatePayment.merchantId}}>
     </div>
@@ -45,6 +47,7 @@
             type="number"
             id="Amount"
             name="Amount"
+            min="0"
             required
             ngModel={{updatePayment.amount}}>
     </div>

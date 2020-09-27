@@ -117,8 +117,12 @@
                 type="number"
                 id="paging"
                 name="noOfResults"
+                min="1"
+                required
                 ngModel>
-            <button type="submit">Submit</button>
+            <button 
+                type="submit"
+                [disabled]="!formNumber.valid">Submit</button>
         </form>
     </div>
 
